@@ -1,0 +1,30 @@
+/* XPM */
+static char *player[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1",
+"   c #e0e0e0",
+".  c #FF0000",
+"m  c #8B4513",
+"b  c #F5F5DC",
+"n  c #000000",
+"B  c #0000FF",
+"Y  c #FFFF00",
+/* pixels */
+"                ",
+"    ......      ",
+"   ..........   ",
+"   mmmbbbnb     ",
+"  mbmbbbbnbbb   ",
+"  mbmbbbbbnbbb  ",
+"  mmbbbbbnnnn   ",
+"    bbbbbbbb    ",
+"   ..B..B.      ",
+"  ...B..B...    ",
+" ....BBBB....   ",
+" bb.BYBBYB.bb   ",
+" bbbBBBBBBbbb   ",
+"   BBB  BBB     ",
+"  mmmm  mmmm    ",
+" mmmmm  mmmmm   ",
+"                ",
+};
