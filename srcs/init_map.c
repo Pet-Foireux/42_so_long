@@ -33,7 +33,7 @@ void check_borders(t_vars *vars)
     {
         if (vars->map[0][i] != '1' || vars->map[vars->height - 1][i] != '1')
         {
-            printf("La map est pas fermer chef\n");
+            ft_printf("La map est pas fermer chef\n");
             ft_exit_succes(vars);
         }
         i++;
@@ -44,7 +44,7 @@ void check_borders(t_vars *vars)
     {
         if (vars->map[i][0] != '1' || vars->map[i][vars->width - 1] != '1')
         {
-            printf("La map est pas fermer chef\n");
+            ft_printf("La map est pas fermer chef\n");
             ft_exit_succes(vars);
         }
         i++;

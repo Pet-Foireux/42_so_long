@@ -47,8 +47,8 @@ int render_next_frame(t_vars *vars)
         if (vars->conteur_pieces == 0)
         {
             vars->map[player_y_index][player_x_index] = '0';
-            printf("Congratulations, you found all the coins and the exit.\n");
-            printf("Is %d moves really the best you can do ?\n", *vars->conteur);
+            ft_printf("Congratulations, you found all the coins and the exit.\n");
+            ft_printf("Is %d moves really the best you can do ?\n", *vars->conteur);
             exit(0);
         }
     }

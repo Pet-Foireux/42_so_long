@@ -9,29 +9,29 @@ int handle_key(int key, t_vars *vars)
     {
         (*vars->conteur)++;
         new_x += vars->player_speed;
-        printf("You moved %d times.\n", *vars->conteur);
+        ft_printf("You moved %d times.\n", *vars->conteur);
     }
     else if (key == 'a')
     {
         (*vars->conteur)++;
         new_x -= vars->player_speed;
-        printf("You moved %d times.\n", *vars->conteur);
+        ft_printf("You moved %d times.\n", *vars->conteur);
     }
     else if (key == 'w')
     { 
         (*vars->conteur)++;
         new_y -= vars->player_speed;
-        printf("You moved %d times.\n", *vars->conteur);
+        ft_printf("You moved %d times.\n", *vars->conteur);
     }
     else if (key == 's')
     {
         (*vars->conteur)++;
         new_y += vars->player_speed;
-        printf("You moved %d times.\n", *vars->conteur);
+        ft_printf("You moved %d times.\n", *vars->conteur);
     }
     else if (key == 65307)
     {
-        printf("To hard for you ?");
+        ft_printf("To hard for you ?");
         ft_exit_fail(vars);
     }
     if (can_move_to(vars, new_x, new_y))
