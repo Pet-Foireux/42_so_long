@@ -2,33 +2,27 @@
 
 void render_map(t_vars *vars) 
 {
-    int x = 0;
-    int y;
     vars->conteur_pieces = 0;
-
-    while (x < vars->height) 
+    vars->x = 0;
+    while (vars->x < vars->height) 
     {
-        y = 0;
-        while (y < vars->width) 
+        vars->y = 0;
+        while (vars->y < vars->width) 
         {
-            if (vars->map[x][y] == '1') 
-                mlx_put_image_to_window(vars->mlx, vars->win, vars->wall_img, y * 32, x * 32);
-            else if (vars->map[x][y] == '0')
-                mlx_put_image_to_window(vars->mlx, vars->win, vars->floor_img, y * 32, x * 32);
-            else if (vars->map[x][y] == 'C')
+            if (vars->map[vars->x][vars->y] == '1') 
+                mlx_put_image_to_window(vars->mlx, vars->win, vars->wall_img, vars->y * 32, vars->x * 32);
+            else if (vars->map[vars->x][vars->y] == '0')
+                mlx_put_image_to_window(vars->mlx, vars->win, vars->floor_img, vars->y * 32, vars->x * 32);
+            else if (vars->map[vars->x][vars->y] == 'C')
             {
                 vars->conteur_pieces++;
-                mlx_put_image_to_window(vars->mlx, vars->win, vars->coin_img, y * 32, x * 32);
+                mlx_put_image_to_window(vars->mlx, vars->win, vars->coin_img, vars->y * 32, vars->x * 32);
             }
-            else if (vars->map[x][y] == 'E')
-            {
-                vars->sortit_x = x * 32;
-                vars->sortit_y = y * 32;
-                mlx_put_image_to_window(vars->mlx, vars->win, vars->sortit_img, y * 32, x * 32);
-            }
-            y++;
+            else if (vars->map[vars->x][vars->y] == 'E')
+                init_e(vars);
+            vars->y++;
         }
-        x++;
+        vars->x++;
     }
 }
 

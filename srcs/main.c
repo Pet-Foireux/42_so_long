@@ -60,12 +60,12 @@ int main(void)
     int conteur = 0;
 
     char *initial_map[] = {
-    "1111111",
-    "1E00001",
-    "1C10011",
-    "1010011",
-    "1P00001",
-    "1111111",
+    "1111111111111111111111111",
+    "1000000001C00101000001011",
+    "1010011101010101010101011",
+    "1010011101010101010101011",
+    "1P0000110000000001E000011",
+    "1111111111111111111111111",
     NULL
     };
     vars.conteur = &conteur;
@@ -73,6 +73,7 @@ int main(void)
     position_player(&vars);
     init_window(&vars);
     render_map(&vars);
+    check_lettre(&vars);
     check_borders(&vars);
     mlx_key_hook(vars.win, handle_key, &vars);
     mlx_loop_hook(vars.mlx, render_next_frame, &vars);

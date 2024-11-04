@@ -25,12 +25,17 @@ typedef struct s_vars
     int     width;
     int     height;
     int     *conteur;
+    int     conteur_p;
+    int     conteur_e;
     int     conteur_pieces;
     int     sortit_x;
     int     sortit_y;
+    int     x;
+    int     y;
 } t_vars;
 
 int handle_key(int key, t_vars *vars);
+void handle_exit(t_vars *vars);
 int can_move_to(t_vars *vars, int new_x, int new_y);
 void update_player_position(t_vars *vars, int new_x, int new_y);
 void position_player(t_vars *vars);
@@ -42,5 +47,7 @@ void free_map(t_vars *vars);
 void check_borders(t_vars *vars);
 void ft_exit_fail(t_vars *vars);
 void ft_exit_succes(t_vars *vars);
+void check_lettre(t_vars *vars);
+void init_e(t_vars *vars);
 
 #endif
