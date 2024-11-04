@@ -12,19 +12,19 @@ void render_map(t_vars *vars)
         while (y < vars->width) 
         {
             if (vars->map[x][y] == '1') 
-                mlx_put_image_to_window(vars->mlx, vars->win, vars->wall_img, y * 16, x * 16);
+                mlx_put_image_to_window(vars->mlx, vars->win, vars->wall_img, y * 32, x * 32);
             else if (vars->map[x][y] == '0')
-                mlx_put_image_to_window(vars->mlx, vars->win, vars->floor_img, y * 16, x * 16);
+                mlx_put_image_to_window(vars->mlx, vars->win, vars->floor_img, y * 32, x * 32);
             else if (vars->map[x][y] == 'C')
             {
                 vars->conteur_pieces++;
-                mlx_put_image_to_window(vars->mlx, vars->win, vars->coin_img, y * 16, x * 16);
+                mlx_put_image_to_window(vars->mlx, vars->win, vars->coin_img, y * 32, x * 32);
             }
             else if (vars->map[x][y] == 'E')
             {
-                vars->sortit_x = x * 16;
-                vars->sortit_y = y * 16;
-                mlx_put_image_to_window(vars->mlx, vars->win, vars->sortit_img, y * 16, x * 16);
+                vars->sortit_x = x * 32;
+                vars->sortit_y = y * 32;
+                mlx_put_image_to_window(vars->mlx, vars->win, vars->sortit_img, y * 32, x * 32);
             }
             y++;
         }
@@ -34,8 +34,8 @@ void render_map(t_vars *vars)
 
 int render_next_frame(t_vars *vars) 
 {
-    int player_x_index = vars->player_x / 16;
-    int player_y_index = vars->player_y / 16;
+    int player_x_index = vars->player_x / 32;
+    int player_y_index = vars->player_y / 32;
 
     if (vars->map[player_y_index][player_x_index] == 'C') 
     {
@@ -47,8 +47,8 @@ int render_next_frame(t_vars *vars)
         if (vars->conteur_pieces == 0)
         {
             vars->map[player_y_index][player_x_index] = '0';
-            ft_printf("Congratulations, you found all the coins and the exit.\n");
-            ft_printf("Is %d moves really the best you can do ?\n", *vars->conteur);
+            printf("Congratulations, you found all the coins and the exit.\n");
+            printf("Is %d moves really the best you can do ?\n", *vars->conteur);
             exit(0);
         }
     }

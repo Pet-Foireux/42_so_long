@@ -10,7 +10,7 @@ void init_map(t_vars *vars, char **initial_map)
     vars->map = malloc(vars->height * sizeof(char *));
     if (!vars->map) 
     {
-        ft_printf("Failed to allocate memory for the map");
+        printf("Failed to allocate memory for the map");
         ft_exit_fail(vars);
     }
 
@@ -20,7 +20,7 @@ void init_map(t_vars *vars, char **initial_map)
         vars->map[i] = strdup(initial_map[i]);
         if (!vars->map[i]) 
         {
-            ft_printf("Failed to duplicate map row");
+            printf("Failed to duplicate map row");
             ft_exit_fail(vars);
         }
         i++;
@@ -60,12 +60,12 @@ int main(void)
     int conteur = 0;
 
     char *initial_map[] = {
-    "1111111111111111111111111111111111",
-    "1E00000000000000000000000000000001",
-    "1C10010100100000101001000000010101",
-    "1010010010101010001001000000010101",
-    "1P00000000000000000000000000000001",
-    "1111111111111111111111111111111111",
+    "1111111",
+    "1E00001",
+    "1C10011",
+    "1010011",
+    "1P00001",
+    "1111111",
     NULL
     };
     vars.conteur = &conteur;

@@ -9,29 +9,29 @@ int handle_key(int key, t_vars *vars)
     {
         (*vars->conteur)++;
         new_x += vars->player_speed;
-        ft_printf("You moved %d times.\n", *vars->conteur);
+        printf("You moved %d times.\n", *vars->conteur);
     }
     else if (key == 'a')
     {
         (*vars->conteur)++;
         new_x -= vars->player_speed;
-        ft_printf("You moved %d times.\n", *vars->conteur);
+        printf("You moved %d times.\n", *vars->conteur);
     }
     else if (key == 'w')
     { 
         (*vars->conteur)++;
         new_y -= vars->player_speed;
-        ft_printf("You moved %d times.\n", *vars->conteur);
+        printf("You moved %d times.\n", *vars->conteur);
     }
     else if (key == 's')
     {
         (*vars->conteur)++;
         new_y += vars->player_speed;
-        ft_printf("You moved %d times.\n", *vars->conteur);
+        printf("You moved %d times.\n", *vars->conteur);
     }
     else if (key == 65307)
     {
-        ft_printf("To hard for you ?");
+        printf("To hard for you ?\n");
         ft_exit_fail(vars);
     }
     if (can_move_to(vars, new_x, new_y))
@@ -41,8 +41,8 @@ int handle_key(int key, t_vars *vars)
 
 int can_move_to(t_vars *vars, int new_x, int new_y) 
 {
-    int map_x = new_x / 16;
-    int map_y = new_y / 16;
+    int map_x = new_x / 32;
+    int map_y = new_y / 32;
 
     if (map_x < 0 || map_x >= vars->width || map_y < 0 || map_y >= vars->height)
         return 0;
