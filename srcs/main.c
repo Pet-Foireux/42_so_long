@@ -54,6 +54,11 @@ void	free_map(t_vars *vars)
 
 void	ft_exit_fail(t_vars *vars)
 {
+	mlx_destroy_image(vars->mlx, "img/collectible.xpm");
+	mlx_destroy_image(vars->mlx, "img/floor.xpm");
+	mlx_destroy_image(vars->mlx, "img/player.xpm");
+	mlx_destroy_image(vars->mlx, "img/sortit.xpm");
+	mlx_destroy_image(vars->mlx, "img/wall.xpm");
 	mlx_clear_window(vars->mlx, vars->win);
 	mlx_destroy_window(vars->mlx, vars->win);
 	free_map(vars);
@@ -62,6 +67,11 @@ void	ft_exit_fail(t_vars *vars)
 
 void	ft_exit_succes(t_vars *vars)
 {
+	mlx_destroy_image(vars->mlx, "img/collectible.xpm");
+	mlx_destroy_image(vars->mlx, "img/floor.xpm");
+	mlx_destroy_image(vars->mlx, "img/player.xpm");
+	mlx_destroy_image(vars->mlx, "img/sortit.xpm");
+	mlx_destroy_image(vars->mlx, "img/wall.xpm");
 	mlx_clear_window(vars->mlx, vars->win);
 	mlx_destroy_window(vars->mlx, vars->win);
 	free_map(vars);
