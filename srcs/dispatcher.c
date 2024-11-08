@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:12:13 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/07 10:15:54 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/08 12:38:33 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,9 @@ void	handle_exit(t_vars *vars)
 
 int	can_move_to(t_vars *vars, int new_x, int new_y)
 {
-	int	map_x;
-	int	map_y;
-
-	map_x = new_x / 32;
-	map_y = new_y / 32;
-	if (map_x < 0 || map_x >= vars->width || map_y < 0 || map_y >= vars->height)
+	if (new_x < 0 || new_x >= vars->width || new_y < 0 || new_y >= vars->height)
 		return (0);
-	return (vars->map[map_y][map_x] != '1');
+	return (vars->map[new_y][new_x] != '1');
 }
 
 void	update_player_position(t_vars *vars, int new_x, int new_y)

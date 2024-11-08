@@ -2,7 +2,7 @@ NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -O3 -Iincludes -Iminilibx-linux
 LDFLAGS = -Lminilibx-linux -lmlx -lX11 -lXext -lXrandr -lm
-SRCS = srcs/main.c srcs/render.c srcs/init_map.c srcs/dispatcher.c srcs/utils.c
+SRCS = srcs/main.c srcs/render.c srcs/init_map.c srcs/dispatcher.c srcs/utils.c srcs/check.c
 OBJ = $(SRCS:srcs/%.c=srcs/%.o)
 
 all: $(NAME)

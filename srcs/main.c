@@ -20,7 +20,7 @@ void	init_map(t_vars *vars, char **initial_map)
 	vars->height = 0;
 	while (initial_map[vars->height])
 		vars->height++;
-	vars->width = strlen(initial_map[0]);
+	vars->width = ft_strlen(initial_map[0]);
 	vars->map = malloc(vars->height * sizeof(char *));
 	if (!vars->map)
 	{
@@ -99,6 +99,7 @@ int	main(void)
 	init_window(&vars);
 	render_map(&vars);
 	check_borders(&vars);
+	check_format(&vars);
 	mlx_key_hook(vars.win, handle_key, &vars);
 	mlx_loop_hook(vars.mlx, render_next_frame, &vars);
 	mlx_loop(vars.mlx);

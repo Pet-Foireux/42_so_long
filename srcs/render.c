@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:12:05 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/07 10:27:30 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/08 12:38:29 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,13 @@ void	render_map(t_vars *vars)
 		while (vars->y < vars->width)
 		{
 			if (vars->map[vars->x][vars->y] == '1')
-				mlx_put_image_to_window(vars->mlx, vars->win,
-					vars->wall_img, vars->y * 32, vars->x * 32);
+				print_img(vars, vars->wall_img, vars->y, vars->x);
 			else if (vars->map[vars->x][vars->y] == '0')
-				mlx_put_image_to_window(vars->mlx, vars->win,
-					vars->floor_img, vars->y * 32, vars->x * 32);
+				print_img(vars, vars->floor_img, vars->y, vars->x);
 			else if (vars->map[vars->x][vars->y] == 'C')
 			{
 				vars->conteur_pieces++;
-				mlx_put_image_to_window(vars->mlx, vars->win,
-					vars->coin_img, vars->y * 32, vars->x * 32);
+				print_img(vars, vars->coin_img, vars->y, vars->x);
 			}
 			else if (vars->map[vars->x][vars->y] == 'E')
 				init_e(vars);
@@ -43,29 +40,21 @@ void	render_map(t_vars *vars)
 
 int	render_next_frame(t_vars *vars)
 {
-	int	player_x_index;
-	int	player_y_index;
-
-	player_x_index = vars->player_x / 32;
-	player_y_index = vars->player_y / 32;
-	if (vars->map[player_y_index][player_x_index] == 'C')
+	if (vars->map[vars->player_y][vars->player_x] == 'C')
 	{
-		vars->map[player_y_index][player_x_index] = '0';
+		vars->map[vars->player_y][vars->player_x] = '0';
 		vars->conteur_pieces--;
 	}
-	if (vars->map[player_y_index][player_x_index] == 'E'
+	if (vars->map[vars->player_y][vars->player_x] == 'E'
 		&& vars->conteur_pieces == 0)
 	{
-		vars->map[player_y_index][player_x_index] = '0';
+		vars->map[vars->player_y][vars->player_x] = '0';
 		printf("Congratulations, you found all the coins and the exit.\n");
 		exit(0);
 	}
 	else if (vars->conteur_pieces > 0)
-		mlx_put_image_to_window(vars->mlx, vars->win,
-			vars->sortit_img, vars->sortit_y, vars->sortit_x);
-	mlx_put_image_to_window(vars->mlx, vars->win,
-		vars->floor_img, vars->last_x, vars->last_y);
-	mlx_put_image_to_window(vars->mlx, vars->win,
-		vars->player_img, vars->player_x, vars->player_y);
+		print_img(vars, vars->sortit_img, vars->sortit_y, vars->sortit_x);
+	print_img(vars, vars->floor_img, vars->last_x, vars->last_y);
+	print_img(vars, vars->player_img, vars->player_x, vars->player_y);
 	return (0);
 }

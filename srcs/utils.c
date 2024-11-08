@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:11:59 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/07 10:39:18 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/08 12:38:30 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	check_lettre(t_vars *vars)
 {
-	if (vars->conteur_p > 1 || vars->conteur_p == 0)
+	if (vars->conteur_p != 1)
 	{
 		printf("Something wrong with the numbers of starting position.\n");
 		ft_exit_fail(vars);
 	}
-	else if (vars->conteur_e > 1 || vars->conteur_e == 0)
+	else if (vars->conteur_e != 1)
 	{
 		printf("Something wrong with the numbers of exit.\n");
 		ft_exit_fail(vars);
@@ -29,8 +29,13 @@ void	check_lettre(t_vars *vars)
 void	init_e(t_vars *vars)
 {
 	vars->conteur_e++;
-	vars->sortit_x = vars->x * 32;
-	vars->sortit_y = vars->y * 32;
-	mlx_put_image_to_window(vars->mlx, vars->win,
-		vars->sortit_img, vars->y * 32, vars->x * 32);
+	vars->sortit_x = vars->x;
+	vars->sortit_y = vars->y;
+	print_img(vars, vars->sortit_img, vars->sortit_y, vars->sortit_x);
+}
+
+void	print_img(t_vars *vars, void *img, int x, int y)
+{
+	mlx_put_image_to_window(vars->mlx, vars->win, img,
+		32 * x, 32 * y);
 }

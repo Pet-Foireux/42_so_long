@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:12:11 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/07 10:20:50 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/08 12:38:32 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	position_player(t_vars *vars)
 			if (vars->map[i][j] == 'P')
 			{
 				vars->conteur_p++;
-				vars->player_x = j * 32;
-				vars->player_y = i * 32;
+				vars->player_x = j;
+				vars->player_y = i;
 				vars->last_x = vars->player_x;
 				vars->last_y = vars->player_y;
 				return ;
@@ -39,41 +39,15 @@ void	position_player(t_vars *vars)
 	}
 }
 
-void	check_borders(t_vars *vars)
-{
-	int	i;
-
-	i = 0;
-	while (i < vars->width)
-	{
-		if (vars->map[0][i] != '1' || vars->map[vars->height - 1][i] != '1')
-		{
-			printf("Map not close.\n");
-			ft_exit_succes(vars);
-		}
-		i++;
-	}
-	i = 0;
-	while (i < vars->height)
-	{
-		if (vars->map[i][0] != '1' || vars->map[i][vars->width - 1] != '1')
-		{
-			printf("Map not close.\n");
-			ft_exit_succes(vars);
-		}
-		i++;
-	}
-}
-
 void	init_window(t_vars *vars)
 {
 	int	width;
 	int	height;
 
-	vars->player_speed = 32;
+	vars->player_speed = 1;
 	vars->mlx = mlx_init();
 	vars->win = mlx_new_window(vars->mlx, vars->width * 32,
-			vars->height * 32, "Jeu");
+			vars->height * 32, "so_long");
 	vars->player_img = mlx_xpm_file_to_image(vars->mlx, "img/player.xpm",
 			&width, &height);
 	vars->wall_img = mlx_xpm_file_to_image(vars->mlx, "img/wall.xpm",
