@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	init_map(t_vars *vars, char **initial_map)
 {
@@ -24,7 +24,7 @@ void	init_map(t_vars *vars, char **initial_map)
 	vars->map = malloc(vars->height * sizeof(char *));
 	if (!vars->map)
 	{
-		printf("Failed to allocate memory for the map");
+		ft_printf("Failed to allocate memory for the map");
 		ft_exit_fail(vars);
 	}
 	while (i < vars->height)
@@ -32,7 +32,7 @@ void	init_map(t_vars *vars, char **initial_map)
 		vars->map[i] = strdup(initial_map[i]);
 		if (!vars->map[i])
 		{
-			printf("Failed to duplicate map row");
+			ft_printf("Failed to duplicate map row");
 			ft_exit_fail(vars);
 		}
 		i++;

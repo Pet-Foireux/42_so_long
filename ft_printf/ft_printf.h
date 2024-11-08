@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnsigned.c                                    :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 14:42:39 by mpapin            #+#    #+#             */
-/*   Updated: 2024/09/17 14:42:39 by mpapin           ###   ########.fr       */
+/*   Created: 2024/11/08 13:43:53 by mpapin            #+#    #+#             */
+/*   Updated: 2024/11/08 13:43:53 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_putnsigned(unsigned int n)
-{
-	int	nb_caracter;
+# include <unistd.h>
+# include <stdarg.h>
 
-	nb_caracter = 0;
-	if (n > 9)
-		nb_caracter += ft_putnsigned(n / 10);
-	nb_caracter += ft_putchar((n % 10) + '0');
-	return (nb_caracter);
-}
+int	ft_putchar(char c);
+int	ft_putnbr(int n);
+int	ft_printf(const char *format, ...);
+int	handle_format(char c, va_list args);
+
+#endif

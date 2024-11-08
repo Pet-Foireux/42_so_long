@@ -6,11 +6,11 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:12:05 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/08 12:38:29 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/08 13:54:32 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	render_map(t_vars *vars)
 {
@@ -49,7 +49,7 @@ int	render_next_frame(t_vars *vars)
 		&& vars->conteur_pieces == 0)
 	{
 		vars->map[vars->player_y][vars->player_x] = '0';
-		printf("Congratulations, you found all the coins and the exit.\n");
+		ft_printf("Congratulations, you found all the coins and the exit.\n");
 		exit(0);
 	}
 	else if (vars->conteur_pieces > 0)

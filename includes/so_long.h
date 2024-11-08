@@ -6,16 +6,16 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:55:49 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/08 12:36:41 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/08 13:50:16 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "../ft_printf/ft_printf.h"
 # include <mlx.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <string.h>
 # include <unistd.h>
 

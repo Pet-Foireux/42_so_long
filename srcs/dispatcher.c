@@ -6,11 +6,11 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:12:13 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/08 12:38:33 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/08 13:54:28 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 int	handle_key(int key, t_vars *vars)
 {
@@ -32,7 +32,7 @@ int	handle_key(int key, t_vars *vars)
 	if (key == 'd' || key == 'a' || key == 'w' || key == 's')
 	{
 		(*vars->conteur)++;
-		printf("You moved %d times.\n", *vars->conteur);
+		ft_printf("You moved %d times.\n", *vars->conteur);
 	}
 	if (can_move_to(vars, new_x, new_y))
 		update_player_position(vars, new_x, new_y);
@@ -41,7 +41,7 @@ int	handle_key(int key, t_vars *vars)
 
 void	handle_exit(t_vars *vars)
 {
-	printf("To hard for you ?\n");
+	ft_printf("To hard for you ?\n");
 	ft_exit_fail(vars);
 }
 

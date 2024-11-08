@@ -6,11 +6,11 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:12:11 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/08 12:38:32 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/08 13:54:29 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	position_player(t_vars *vars)
 {
@@ -62,7 +62,7 @@ void	init_window(t_vars *vars)
 		|| vars->floor_img == NULL || vars->coin_img == NULL
 		|| vars->sortit_img == NULL)
 	{
-		printf("Erreur: Une des images n'a pas pu être chargée.\n");
+		ft_printf("Erreur: Une des images n'a pas pu être chargée.\n");
 		exit(EXIT_FAILURE);
 	}
 }

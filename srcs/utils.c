@@ -6,22 +6,22 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:11:59 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/08 12:38:30 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/08 13:54:37 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	check_lettre(t_vars *vars)
 {
 	if (vars->conteur_p != 1)
 	{
-		printf("Something wrong with the numbers of starting position.\n");
+		ft_printf("Something wrong with the numbers of starting position.\n");
 		ft_exit_fail(vars);
 	}
 	else if (vars->conteur_e != 1)
 	{
-		printf("Something wrong with the numbers of exit.\n");
+		ft_printf("Something wrong with the numbers of exit.\n");
 		ft_exit_fail(vars);
 	}
 }
