@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:16:17 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/17 06:09:56 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/17 07:40:24 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,19 @@ typedef struct s_init
     int     widht;
 }   t_init;
 
+void	check_borders(t_init *init);
+void	check_carrer_de_la_mort(t_init *init);
+void	check_format(t_init *init);
+void    init_xpm(t_init *init);
+void	free_map(t_init *init);
+int	    ft_exit(t_init *init);
 int     main(int argc, char **argv);
+int	    get_height(char **argv);
 void    check_args(int argc, char **argv);
+char	**ft_malloc(t_init *init);
 void    parse_map(t_init *init, char **argv);
 void    check_fd(int fd);
-void    init_xpm(t_init *init);
+void	print(t_init *init, void *img, int x, int y);
 void	print_map(t_init *init);
 
 #endif

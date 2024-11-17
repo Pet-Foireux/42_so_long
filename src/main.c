@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:58:03 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/17 07:02:19 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/17 07:53:45 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,25 @@ void	free_map(t_init *init)
 
 int	ft_exit(t_init *init)
 {
-	mlx_destroy_window(init->mlx, init->win);
-	mlx_destroy_image(init->mlx, init->coin_img);
-	mlx_destroy_image(init->mlx, init->wall_img);
-	mlx_destroy_image(init->mlx, init->floor_img);
-	mlx_destroy_image(init->mlx, init->player_img);
-	mlx_destroy_image(init->mlx, init->exit_img);
+	if (init->win)
+		mlx_destroy_window(init->mlx, init->win);
+	if (init->coin_img)
+		mlx_destroy_image(init->mlx, init->coin_img);
+	if (init->wall_img)
+		mlx_destroy_image(init->mlx, init->wall_img);
+	if (init->floor_img)
+		mlx_destroy_image(init->mlx, init->floor_img);
+	if (init->player_img)
+		mlx_destroy_image(init->mlx, init->player_img);
+	if (init->exit_img)
+		mlx_destroy_image(init->mlx, init->exit_img);
 	free_map(init);
-	mlx_destroy_display(init->mlx);
-	free(init->mlx);
-	exit (EXIT_SUCCESS);
+	if (init->mlx)
+	{
+		mlx_destroy_display(init->mlx);
+		free(init->mlx);
+	}
+	exit(EXIT_SUCCESS);
 	return (0);
 }
 
@@ -52,6 +61,9 @@ int	main(int argc, char **argv)
 	init.height = 0;
 	check_args(argc, argv);
 	parse_map(&init, argv);
+	check_borders(&init);
+	check_carrer_de_la_mort(&init);
+	check_format(&init);
 	init_xpm(&init);
 	print_map(&init);
 	mlx_hook(init.win, 17, 1L << 17, ft_exit, &init);
