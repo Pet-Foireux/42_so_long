@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:16:17 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/17 07:40:24 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/17 09:29:59 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,27 @@ typedef struct s_init
     int     widht;
 }   t_init;
 
+typedef struct s_count
+{
+    int     count_piece;
+    int     count_exit;
+    int     count_player;
+}   t_count;
+
+typedef struct s_move
+{
+    int     move_x;
+    int     move_y;
+    int     player_x;
+    int     player_y;
+    int     conteur;
+}   t_move;
+
+
 void	check_borders(t_init *init);
 void	check_carrer_de_la_mort(t_init *init);
 void	check_format(t_init *init);
+void	check_count(t_init *init, t_count *count);
 void    init_xpm(t_init *init);
 void	free_map(t_init *init);
 int	    ft_exit(t_init *init);
@@ -45,6 +63,6 @@ char	**ft_malloc(t_init *init);
 void    parse_map(t_init *init, char **argv);
 void    check_fd(int fd);
 void	print(t_init *init, void *img, int x, int y);
-void	print_map(t_init *init);
+void	print_map(t_init *init, t_count *count);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 07:42:45 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/17 08:17:45 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/17 08:57:23 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,19 @@ void	check_format(t_init *init)
 			exit(0);
 		}
 		i++;
+	}
+}
+
+void	check_count(t_init *init, t_count *count)
+{
+	if (count->count_player != 1)
+	{
+		ft_printf("Ses pas multijoeur le sang\n");
+		ft_exit(init);
+	}
+	else if (count->count_exit != 1)
+	{
+		ft_printf("Ta cru j'acceptais plusieurs sortit\n");
+		ft_exit(init);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:58:03 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/17 07:53:45 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/17 09:38:02 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	ft_exit(t_init *init)
 int	main(int argc, char **argv)
 {
 	t_init	init;
+	t_count	count;
 
 	init.widht = 0;
 	init.height = 0;
@@ -65,7 +66,8 @@ int	main(int argc, char **argv)
 	check_carrer_de_la_mort(&init);
 	check_format(&init);
 	init_xpm(&init);
-	print_map(&init);
-	mlx_hook(init.win, 17, 1L << 17, ft_exit, &init);
+	print_map(&init, &count);
+	check_count(&init, &count);
+	mlx_hook(init.win, 17, 1L << 17, handle_exit, &init);
 	mlx_loop(init.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:51:32 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/17 07:39:43 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/17 08:43:58 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ void	check_args(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("Envoie une map en 2 2");
+		ft_printf("Envoie une map en 2 2\n");
 		exit (0);
 	}
 	ber = ft_strchr(argv[1], '.');
 	if (!ber || ft_strncmp(ber, ".ber", 4) != 0)
 	{
-		ft_printf("Ta cru j'acceptais autre chose que .ber");
+		ft_printf("Ta cru j'acceptais autre chose que .ber\n");
 		exit (0);
 	}
 }

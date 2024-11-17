@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 03:47:25 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/17 07:13:19 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/17 08:53:16 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@ void	print(t_init *init, void *img, int x, int y)
 		32 * x, 32 * y);
 }
 
-void	print_map(t_init *init)
+void	print_map(t_init *init, t_count *count)
 {
 	int	y;
 	int	x;
 
+	count->count_exit = 0;
+	count->count_piece = 0;
+	count->count_player = 0;
 	y = 0;
 	while (y < init->height)
 	{
@@ -35,11 +38,20 @@ void	print_map(t_init *init)
 			else if (init->map[y][x] == '0')
 				print(init, init->floor_img, x, y);
 			else if (init->map[y][x] == 'C')
+			{
 				print(init, init->coin_img, x, y);
+				count->count_piece++;
+			}
 			else if (init->map[y][x] == 'E')
+			{
 				print(init, init->exit_img, x, y);
+				count->count_player++;
+			}
 			else if (init->map[y][x] == 'P')
+			{
 				print(init, init->player_img, x, y);
+				count->count_player++;
+			}
 			x++;
 		}
 		y++;
