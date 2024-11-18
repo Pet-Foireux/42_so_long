@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 03:47:25 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/18 11:37:39 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:18:06 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ void	print_map(t_init *init, t_count *count)
 	int	y;
 	int	x;
 
-	count->count_exit = 0;
-	count->count_piece = 0;
-	count->count_player = 0;
 	y = 0;
 	while (y < init->height)
 	{
@@ -34,24 +31,15 @@ void	print_map(t_init *init, t_count *count)
 		while (x < init->widht)
 		{
 			if (init->map[y][x] == '1')
-				print(init, init->wall_img, x, y);
+				print_wall(init, x, y);
 			else if (init->map[y][x] == '0')
-				print(init, init->floor_img, x, y);
+				print_floor(init, x, y);
 			else if (init->map[y][x] == 'C')
-			{
-				print(init, init->coin_img, x, y);
-				count->count_piece++;
-			}
+				print_coin(init, count, x, y);
 			else if (init->map[y][x] == 'E')
-			{
-				print(init, init->exit_img, x, y);
-				count->count_exit++;
-			}
+				print_exit(init, count, x, y);
 			else if (init->map[y][x] == 'P')
-			{
-				print(init, init->player_img, x, y);
-				count->count_player++;
-			}
+				print_player(init, count, x, y);
 			x++;
 		}
 		y++;

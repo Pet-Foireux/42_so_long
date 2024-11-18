@@ -4,7 +4,7 @@ CFLAGS      = -Wall -Wextra -Werror -O3
 INCLUDES    = -Ibesoin/mlx -Ibesoin/mlx_linux -Ibesoin/libft
 LIBS        = -Lbesoin/mlx -lmlx -lX11 -lXext -lXrandr -lm \
               -Lbesoin/libft -lft
-SRC         = src/init.c src/main.c src/map.c src/print.c src/check.c \
+SRC         = src/init.c src/main.c src/map.c src/print.c src/check.c src/printall.c \
               besoin/gnl/get_next_line.c \
 			  besoin/ft_printf/ft_printf.c
 OBJ         = $(SRC:.c=.o)

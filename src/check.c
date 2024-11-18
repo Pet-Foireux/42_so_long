@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 07:42:45 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/18 12:04:30 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:18:34 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ void	check_borders(t_init *init)
 void	check_all(t_init *init)
 {
 	if (!init->map || init->height <= 0 || init->widht <= 0)
-    {
-        ft_printf("Erreur: La carte n'est pas correctement initialisée.\n");
-        free_map(init);
-        exit(0);
-    }
+	{
+		ft_printf("Erreur: La carte n'est pas correctement initialisée.\n");
+		free_map(init);
+		exit(0);
+	}
 	check_borders(init);
 	check_carrer_de_la_mort(init);
 	check_format(init);
