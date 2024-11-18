@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:30:25 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/18 12:19:05 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:24:57 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ void	check_init(t_init *init)
 	}
 }
 
-void	init_count_move(t_init *init, t_move *move, t_count *count)
+void	init_count_move(t_init *init, t_count *count)
 {
 	init->widht = 0;
 	init->height = 0;
-	move->conteur = 0;
 	count->count_exit = 0;
 	count->count_piece = 0;
 	count->count_player = 0;

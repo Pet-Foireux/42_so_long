@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:16:17 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/18 12:21:40 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:25:24 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,8 @@ typedef struct s_count
 	int		count_player;
 }	t_count;
 
-typedef struct s_move
-{
-	int		move_x;
-	int		move_y;
-	int		player_x;
-	int		player_y;
-	int		last_x;
-	int		last_y;
-	int		conteur;
-}	t_move;
-
 typedef struct s_init
 {
-	t_move	move;
 	t_count	count;
 	void	*mlx;
 	void	*win;
@@ -59,7 +47,7 @@ void	check_count(t_init *init, t_count *count);
 void	check_all(t_init *init);
 void	init_xpm(t_init *init);
 void	check_init(t_init *init);
-void	init_count_move(t_init *init, t_move *move, t_count *count);
+void	init_count_move(t_init *init, t_count *count);
 void	free_map(t_init *init);
 int		ft_exit(t_init *init);
 int		main(int argc, char **argv);
