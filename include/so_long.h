@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:16:17 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/17 09:29:59 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:00:55 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,6 @@
 # include "../besoin/ft_printf/ft_printf.h"
 # include "../besoin/gnl/get_next_line.h"
 # include "../besoin/libft/libft.h"
-
-typedef struct s_init
-{
-    void    *mlx;
-    void    *win;
-    void    *player_img;
-    void    *coin_img;
-    void    *exit_img;
-    void    *wall_img;
-    void    *floor_img;
-    char    **map;
-    int     height;
-    int     widht;
-}   t_init;
 
 typedef struct s_count
 {
@@ -45,15 +31,35 @@ typedef struct s_move
     int     move_y;
     int     player_x;
     int     player_y;
+    int     last_x;
+    int     last_y;
     int     conteur;
 }   t_move;
 
+typedef struct s_init
+{
+    t_move  move;
+    t_count count;
+    void    *mlx;
+    void    *win;
+    void    *player_img;
+    void    *coin_img;
+    void    *exit_img;
+    void    *wall_img;
+    void    *floor_img;
+    char    **map;
+    int     height;
+    int     widht;
+}   t_init;
 
 void	check_borders(t_init *init);
 void	check_carrer_de_la_mort(t_init *init);
 void	check_format(t_init *init);
 void	check_count(t_init *init, t_count *count);
+void	check_all(t_init *init);
 void    init_xpm(t_init *init);
+void	check_init(t_init *init);
+void	init_count_move(t_init *init, t_move *move, t_count *count);
 void	free_map(t_init *init);
 int	    ft_exit(t_init *init);
 int     main(int argc, char **argv);

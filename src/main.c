@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:58:03 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/17 09:38:02 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:01:02 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_exit(t_init *init)
 		mlx_destroy_display(init->mlx);
 		free(init->mlx);
 	}
-	exit(EXIT_SUCCESS);
+	exit (0);
 	return (0);
 }
 
@@ -57,17 +57,15 @@ int	main(int argc, char **argv)
 {
 	t_init	init;
 	t_count	count;
-
-	init.widht = 0;
-	init.height = 0;
+	t_move	move;
+	
+	init_count_move(&init, &move, &count);
 	check_args(argc, argv);
 	parse_map(&init, argv);
-	check_borders(&init);
-	check_carrer_de_la_mort(&init);
-	check_format(&init);
+	check_all(&init);
 	init_xpm(&init);
 	print_map(&init, &count);
 	check_count(&init, &count);
-	mlx_hook(init.win, 17, 1L << 17, handle_exit, &init);
+	mlx_hook(init.win, 17, 1L << 17, ft_exit, &init);
 	mlx_loop(init.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 03:47:25 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/17 08:53:16 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/18 11:37:39 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	print_map(t_init *init, t_count *count)
 	while (y < init->height)
 	{
 		x = 0;
-		while (x != init->widht)
+		while (x < init->widht)
 		{
 			if (init->map[y][x] == '1')
 				print(init, init->wall_img, x, y);
@@ -45,7 +45,7 @@ void	print_map(t_init *init, t_count *count)
 			else if (init->map[y][x] == 'E')
 			{
 				print(init, init->exit_img, x, y);
-				count->count_player++;
+				count->count_exit++;
 			}
 			else if (init->map[y][x] == 'P')
 			{

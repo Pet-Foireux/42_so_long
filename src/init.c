@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:30:25 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/17 08:44:00 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/18 11:38:02 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,24 @@ void	init_xpm(t_init *init)
 			&widht, &height);
 	init->player_img = mlx_xpm_file_to_image(init->mlx,
 			"besoin/struct/player.xpm", &widht, &height);
+	check_init(init);
+}
+
+void	check_init(t_init *init)
+{
+	if (!init->coin_img || !init->exit_img || !init->wall_img || !init->floor_img || !init->player_img)
+    {
+        ft_printf("Erreur de chargement des images XPM.\n");
+        ft_exit(init);
+    }
+}
+
+void	init_count_move(t_init *init, t_move *move, t_count *count)
+{
+	init->widht = 0;
+	init->height = 0;
+	move->conteur = 0;
+	count->count_exit = 0;
+	count->count_piece = 0;
+	count->count_player = 0;
 }
