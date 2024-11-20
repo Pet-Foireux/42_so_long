@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 07:42:45 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/18 12:18:34 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/20 13:15:47 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	check_count(t_init *init, t_count *count)
 {
 	if (count->count_player != 1)
 	{
-		ft_printf("Ses pas multijoeur le sang\n");
+		ft_printf("tu a %d joeurs\n", count->count_player);
 		ft_exit(init);
 	}
 	else if (count->count_exit != 1)

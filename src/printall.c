@@ -34,8 +34,12 @@ void	print_exit(t_init *init, t_count *count, int x, int y)
 	count->count_exit++;
 }
 
-void	print_player(t_init *init, t_count *count, int x, int y)
+void print_player(t_init *init, t_count *count, t_move *move, int x, int y)
 {
-	print(init, init->player_img, x, y);
-	count->count_player++;
+    print(init, init->player_img, x, y);
+    count->count_player++;
+    move->player_x = x;
+    move->player_y = y;
+    move->new_x = move->player_x;
+    move->new_y = move->player_y;
 }
