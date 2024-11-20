@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:00:31 by mpapin            #+#    #+#             */
-/*   Updated: 2024/10/30 23:50:18 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/20 03:10:33 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ size_t	ft_strlcat(char *d, const char *s, size_t dstsize)
 		return (ft_strlen(s) + dst_len);
 }
 
-int	main(void)
-{
-	char dest[20] = "Hello, ";
-	char *src = "World!";
-	size_t result = ft_strlcat(dest, src, sizeof(dest));
-	printf("Result: %s, Length: %zu\n", dest, result);
-	return (0);
-}
+// int	main(void)
+// {
+// 	char dest[20] = "Hello, ";
+// 	char *src = "World!";
+// 	size_t result = ft_strlcat(dest, src, sizeof(dest));
+// 	printf("Result: %s, Length: %zu\n", dest, result);
+// 	return (0);
+// }
