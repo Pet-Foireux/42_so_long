@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 03:47:25 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/20 13:07:24 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/20 14:35:04 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	print_map(t_init *init, t_count *count, t_move *move)
 			else if (init->map[y][x] == 'E')
 				print_exit(init, count, x, y);
 			else if (init->map[y][x] == 'P')
-				print_player(init, count, move, x, y);
+				print_player(init, move, x, y);
 			x++;
 		}
 		y++;

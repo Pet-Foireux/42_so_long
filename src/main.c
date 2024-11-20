@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:58:03 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/20 13:30:30 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/20 14:34:10 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,16 @@ int	main(int argc, char **argv)
 	t_count	count;
 	t_move	move;
 
-	init_count_move(&init, &count);
+	move.mouvements = 0;
+	move.init = &init;
+	move.count = &count;
+	init_count_move(&init, &count, &move);
 	check_args(argc, argv);
 	parse_map(&init, argv);
 	check_all(&init);
 	init_xpm(&init);
 	print_map(&init, &count, &move);
-	check_count(&init, &count);
-	move.init = &init;
-	int	y = 0;
-	while (y < init.height)
-		printf("%s\n", init.map[y++]);
+	check_count(&init, &count, &move);
 	mlx_key_hook(init.win, handle_key, &move);
 	mlx_hook(init.win, 17, 1L << 17, ft_exit, &init);
 	mlx_loop(init.mlx);

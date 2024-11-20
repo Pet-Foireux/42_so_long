@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:16:17 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/20 12:41:50 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/20 14:40:05 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_count
 {
 	int		count_piece;
 	int		count_exit;
-	int		count_player;
 }	t_count;
 
 typedef struct s_init
@@ -44,25 +43,28 @@ typedef struct s_move
 {
 	t_init	*init;
 	t_count	*count;
+	int		count_player;
+	int		mouvements;
 	int		last_x;
 	int		last_y;
 	int		player_x;
 	int		player_y;
 	int		new_x;
-	int 	new_y;
+	int		new_y;
 }	t_move;
 
 void	check_borders(t_init *init);
 void	check_carrer_de_la_mort(t_init *init);
 void	check_format(t_init *init);
-void	check_count(t_init *init, t_count *count);
+void	check_count(t_init *init, t_count *count, t_move *move);
 void	check_all(t_init *init);
 void	init_xpm(t_init *init);
 void	check_init(t_init *init);
-int 	handle_key(int key, t_move *move);
-int 	update(t_move *move);
-int 	can_move(t_move *move);
-void	init_count_move(t_init *init, t_count *count);
+int		handle_key(int key, t_move *move);
+int		ft_mouvements(t_move *move);
+int		update(t_move *move);
+int		can_move(t_move *move);
+void	init_count_move(t_init *init, t_count *count, t_move *move);
 void	free_map(t_init *init);
 int		ft_exit(t_init *init);
 int		main(int argc, char **argv);
@@ -77,6 +79,6 @@ void	print_wall(t_init *init, int x, int y);
 void	print_floor(t_init *init, int x, int y);
 void	print_coin(t_init *init, t_count *count, int x, int y);
 void	print_exit(t_init *init, t_count *count, int x, int y);
-void	print_player(t_init *init, t_count *count, t_move *move, int x, int y);
+void	print_player(t_init *init, t_move *move, int x, int y);
 
 #endif
