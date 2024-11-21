@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:30:25 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/20 14:31:01 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/21 10:22:04 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	check_init(t_init *init)
 	if (!init->coin_img || !init->exit_img || !init->wall_img
 		|| !init->floor_img || !init->player_img)
 	{
-		ft_printf("Erreur de chargement des images XPM.\n");
+		ft_printf("Error\nImages XPM.\n");
 		ft_exit(init);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:51:32 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/20 13:30:25 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/21 10:25:02 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	get_height(char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		ft_printf("Erreur d'ouverture du fichier\n");
+		ft_printf("Error\nFichier mal ouvert\n");
 		exit(1);
 	}
 	line = get_next_line(fd);
@@ -42,13 +42,13 @@ void	check_args(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("Envoie une map en 2 2\n");
+		ft_printf("Error\nEnvoie une map en 2 2\n");
 		exit (0);
 	}
 	ber = ft_strchr(argv[1], '.');
 	if (!ber || ft_strncmp(ber, ".ber", 4) != 0)
 	{
-		ft_printf("Ta cru j'acceptais autre chose que .ber\n");
+		ft_printf("Error\nPas .ber\n");
 		exit (0);
 	}
 }
@@ -60,7 +60,7 @@ char	**ft_malloc(t_init *init)
 	map = malloc(sizeof(char *) * (init->height + 1));
 	if (!map)
 	{
-		ft_printf("Erreur de malloc pour la map\n");
+		ft_printf("Error\nPrblm malloc map\n");
 		exit(1);
 	}
 	return (map);
@@ -96,7 +96,7 @@ void	check_fd(int fd)
 {
 	if (fd == -1)
 	{
-		ft_printf("File descriptor not good\n");
+		ft_printf("Error\nPrblm de fd\n");
 		exit(1);
 	}
 }

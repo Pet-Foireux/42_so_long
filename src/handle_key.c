@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 11:57:59 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/20 14:20:47 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/21 10:32:27 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,11 @@ int	can_move(t_move *move)
 		return (0);
 	if (move->init->map[move->new_y][move->new_x] == 'E'
 		&& move->count->count_piece == 0)
+	{
+		ft_printf("Bravo a toi !\n");
+		ft_printf("Finish avec %d mouvements, ", move->mouvements);
+		ft_printf("peux-tu faire mieux ?\n");
 		ft_exit(move->init);
+	}
 	return (1);
 }
