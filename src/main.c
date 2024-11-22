@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:58:03 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/22 13:48:30 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/22 18:08:27 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int argc, char **argv)
 	init_xpm(&init);
 	print_map(&init, &count, &move);
 	check_count(&init, &count, &move);
-	visited(&init);
+	check_chemin(&init, &move, &count);
 	mlx_key_hook(init.win, handle_key, &move);
 	mlx_hook(init.win, 17, 1L << 17, ft_exit, &init);
 	mlx_loop(init.mlx);
