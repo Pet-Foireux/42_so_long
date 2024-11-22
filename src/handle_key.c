@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 11:57:59 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/21 10:32:27 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/21 11:55:04 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,15 @@ int	ft_mouvements(t_move *move)
 
 int	update(t_move *move)
 {
+	t_init	*init;
+
+	init = move->init;
 	move->last_x = move->player_x;
 	move->last_y = move->player_y;
 	move->player_x = move->new_x;
 	move->player_y = move->new_y;
-	print(move->init, move->init->player_img, move->player_x, move->player_y);
-	print(move->init, move->init->floor_img, move->last_x, move->last_y);
+	print(move->init, init->player_img, move->player_x, move->player_y);
+	print(move->init, init->floor_img, move->last_x, move->last_y);
 	return (0);
 }
 

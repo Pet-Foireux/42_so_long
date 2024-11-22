@@ -32,6 +32,8 @@ void	print_exit(t_init *init, t_count *count, int x, int y)
 {
 	print(init, init->exit_img, x, y);
 	count->count_exit++;
+	init->exit_x = x;
+	init->exit_y = y;
 }
 
 void	print_player(t_init *init, t_move *move, int x, int y)

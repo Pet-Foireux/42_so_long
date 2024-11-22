@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:51:32 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/21 10:25:02 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/22 13:32:48 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	parse_map(t_init *init, char **argv)
 	map[i] = NULL;
 	close(fd);
 	init->map = map;
+	init->visited = map;
 	init->widht = ft_strlen(map[0]);
 }
 

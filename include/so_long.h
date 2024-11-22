@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:16:17 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/20 14:40:05 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/22 13:30:18 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ typedef struct s_init
 	void	*wall_img;
 	void	*floor_img;
 	char	**map;
+	char	**visited;
+	int		exit_x;
+	int		exit_y;
 	int		height;
 	int		widht;
 }	t_init;
@@ -80,5 +83,6 @@ void	print_floor(t_init *init, int x, int y);
 void	print_coin(t_init *init, t_count *count, int x, int y);
 void	print_exit(t_init *init, t_count *count, int x, int y);
 void	print_player(t_init *init, t_move *move, int x, int y);
+void    visited(t_init *init);
 
 #endif
