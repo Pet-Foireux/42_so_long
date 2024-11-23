@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:16:17 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/22 18:27:30 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/23 14:43:14 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,14 @@ typedef struct s_init
 	void	*wall_img;
 	void	*floor_img;
 	char	**map;
-	int		**visited;
+	char	**visited;
 	int		exit_x;
 	int		exit_y;
 	int		height;
 	int		widht;
 	int		pieces_trouvees;
 	int		sortie_trouvee;
+	int		player_trouvee;
 }	t_init;
 
 typedef struct s_move

@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:10:32 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/22 18:28:28 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/23 14:45:16 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,15 @@ void flood_fill(t_init *init, int x, int y)
 {
     if (x < 0 || x >= init->height || y < 0 || y >= init->widht)
         return ;
-    if (init->visited[x][y] == 2)
+    if (init->visited[x][y] == '1' || init->visited[x][y] == '2')
         return ;
-
-    // Si la case est un mur (valeur 1 dans visited), on ne l'explore pas
-    if (init->visited[x][y] == 1)
-        return ;
-
-    // Si la case contient une pièce 'C' (par exemple valeur 3 dans visited)
-    if (init->visited[x][y] == 3)
+    if (init->visited[x][y] == 'C')
         (init->pieces_trouvees)++;
-
-    // Si la case est la sortie 'E' (par exemple valeur 4 dans visited)
-    if (init->visited[x][y] == 4)
-    {
+    if (init->visited[x][y] == 'E')
         init->sortie_trouvee = 1;
-        printf("Sortie trouvée à (%d, %d)\n", x, y);
-    }
-    init->visited[x][y] = 2;
+    if (init->visited[x][y] == 'P')
+        init->player_trouvee = 1;
+    init->visited[x][y] = '2';
     flood_fill(init, x + 1, y);
     flood_fill(init, x - 1, y);
     flood_fill(init, x, y + 1);
@@ -42,59 +33,29 @@ void flood_fill(t_init *init, int x, int y)
 
 void check_chemin(t_init *init, t_move *move, t_count *count)
 {
-    // visited(init);
-    init->pieces_trouvees = 0;
-    init->sortie_trouvee = 0;
     printf("Player position: x=%d, y=%d\n", move->player_x, move->player_y);
-    
-    // Affiche les informations sur le nombre de pièces et la sortie
     printf("Initial pieces_trouvees: %d\n", init->pieces_trouvees);
     printf("Initial sortie_trouvee: %d\n", init->sortie_trouvee);
     printf("Nombre de pièces à trouver: %d\n", count->count_piece);
     printf("Player position: x=%d, y=%d\n", move->player_x, move->player_y);
     flood_fill(init, move->player_x, move->player_y);
-    cacaprint(init);
+    cacaprint(init);//  a enlever
+    if (init->player_trouvee != 1)
+    {
+        ft_printf("Le joueur est bloquer\n");
+        ft_exit(init);
+    }
     if (init->sortie_trouvee != 1)
     {
         ft_printf("La sortie n'est pas accessible\n");
         ft_exit(init);
     }
-    if (init->pieces_trouvees != count->count_piece && init->sortie_trouvee)
+    if (init->pieces_trouvees != count->count_piece)
     {
         ft_printf("Error\nIl manque des pièces\n");
         ft_exit(init);
     }
 }
-
-// void    visited(t_init *init)
-// {
-//     int i;
-//     int j;
-
-//     i = 0;
-//     while (i != init->height)
-//     {
-//         j = 0;
-//         while (j != init->widht)
-//         {
-//             if (init->map[i][j] == '1')
-//                 init->visited[i][j] = 1;  // Mur
-//             else if (init->map[i][j] == 'C')
-//                 init->visited[i][j] = 3;  // Pièce (C)
-//             else if (init->map[i][j] == 'E')
-//                 init->visited[i][j] = 4;  // Sortie (E)
-//             else if (init->map[i][j] == 'P')
-//                 init->visited[i][j] = 0;
-//             else
-//                 init->visited[i][j] = 0;
-//             // printf("%d", init->visited[i][j]);
-//             printf("%d", init->map[i][j]);
-//             j++;
-//         }
-//         printf("\n");
-//         i++;
-//     }
-// }
 
 void    cacaprint(t_init *init)
 {
@@ -107,7 +68,7 @@ void    cacaprint(t_init *init)
         j = 0;
         while (j != init->widht)
         {
-            printf("%d", init->visited[i][j]);
+            printf("%c", init->visited[i][j]);
             j++;
         }
         printf("\n");
@@ -117,33 +78,29 @@ void    cacaprint(t_init *init)
 
 void map_to_visited(t_init *init)
 {
-    int i;
-    int j;
+    int     i;
+    char    **visited;
 
-    init->visited = malloc(sizeof(int *) * (init->height + 1));
-    if (!init->visited)
+    visited = malloc(sizeof(char *) * (init->height + 1));
+    if (!visited)
     {
-        ft_printf("Error\nPrblm malloc visited\n");
+        ft_printf("Error\nProblème malloc visited\n");
         exit(1);
     }
-    i = 0;
-    while (i < init->height)
+
+    i = -1;
+    while (++i < init->height)
     {
-        init->visited[i] = malloc(sizeof(int) * (init->widht + 1));
-        if (!init->visited[i])
+        visited[i] = malloc(sizeof(char) * (init->widht + 1));
+        if (!visited[i])
         {
-            ft_printf("Error\nPrblm malloc visited line\n");
+            ft_printf("Error\nProblème malloc visited[i]\n");
             exit(1);
         }
-        j = 0;
-        while (j < init->widht)
-        {
-            init->visited[i][j] = init->map[i][j];
-            j++;
-        }
-        init->visited[i][j] = '\0';
-        i++;
+        ft_strlcpy(visited[i], init->map[i], init->widht + 1);
     }
-    init->visited[i] = NULL;
+    visited[i] = NULL;
+    init->visited = visited;
+    cacaprint(init);// a enlever
 }
 

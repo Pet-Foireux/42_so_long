@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:58:03 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/22 18:08:27 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/23 14:46:22 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,17 @@ void	free_map(t_init *init)
 		}
 		free(init->map);
 		init->map = NULL;
+	}
+	if (init->visited != NULL)
+	{
+		i = 0;
+		while (init->visited[i] != NULL)
+		{
+			free(init->visited[i]);
+			i++;
+		}
+		free(init->visited);
+		init->visited = NULL;
 	}
 }
 
