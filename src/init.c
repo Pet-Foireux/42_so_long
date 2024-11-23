@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:30:25 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/23 14:43:48 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/23 19:24:29 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ void	init_count_move(t_init *init, t_count *count, t_move *move)
 	count->count_piece = 0;
 	move->count_player = 0;
 	init->pieces_trouvees = 0;
-    init->sortie_trouvee = 0;
-    init->player_trouvee = 0;
+	init->sortie_trouvee = 0;
+	init->player_trouvee = 0;
 }

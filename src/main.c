@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:58:03 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/23 14:46:22 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/23 19:19:28 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ int	main(int argc, char **argv)
 	check_count(&init, &count, &move);
 	check_chemin(&init, &move, &count);
 	mlx_key_hook(init.win, handle_key, &move);
-	mlx_hook(init.win, 17, 1L << 17, ft_exit, &init);
+	mlx_hook(init.win, 17, 1L << 17, exit_croix, &init);
 	mlx_loop(init.mlx);
 }

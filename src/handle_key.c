@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 11:57:59 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/21 11:55:04 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/23 19:24:41 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	handle_key(int key, t_move *move)
 		move->new_x += 1;
 	if (key == 65307)
 	{
-		ft_printf("trop dur le sang\n");
+		ft_printf("trop dur le sang?\n");
 		ft_exit(move->init);
 	}
 	if (key == 'w' || key == 'a' || key == 's' || key == 'd')
@@ -35,14 +35,16 @@ int	handle_key(int key, t_move *move)
 int	ft_mouvements(t_move *move)
 {
 	if (can_move(move))
+	{
 		update(move);
+	}
 	else
 	{
 		move->new_x = move->player_x;
 		move->new_y = move->player_y;
 	}
 	move->mouvements++;
-	ft_printf("tes as %d deplacements\n", move->mouvements);
+	ft_printf("tes as %d, deplacements\n", move->mouvements);
 	return (0);
 }
 
@@ -81,4 +83,11 @@ int	can_move(t_move *move)
 		ft_exit(move->init);
 	}
 	return (1);
+}
+
+int	exit_croix(t_init *init)
+{
+	ft_printf("Trop dur le sang ?\n");
+	ft_exit(init);
+	return (0);
 }

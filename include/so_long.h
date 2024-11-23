@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:16:17 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/23 14:43:14 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/23 19:25:49 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,24 @@ typedef struct s_count
 
 typedef struct s_init
 {
-	t_count	*count;
-	void	*mlx;
-	void	*win;
-	void	*player_img;
-	void	*coin_img;
-	void	*exit_img;
-	void	*wall_img;
-	void	*floor_img;
-	char	**map;
-	char	**visited;
-	int		exit_x;
-	int		exit_y;
-	int		height;
-	int		widht;
-	int		pieces_trouvees;
-	int		sortie_trouvee;
-	int		player_trouvee;
+	t_count		*count;
+	void		*mlx;
+	void		*win;
+	void		*player_img;
+	void		*coin_img;
+	void		*exit_img;
+	void		*wall_img;
+	void		*floor_img;
+	char		**map;
+	char		**visited;
+	int			exit_x;
+	int			exit_y;
+	int			height;
+	int			widht;
+	int			sortie_trouvee;
+	int			pieces_trouvees;
+	int			player_trouvee;
+	char		*bonus_conteur;
 }	t_init;
 
 typedef struct s_move
@@ -71,6 +72,7 @@ int		ft_mouvements(t_move *move);
 int		update(t_move *move);
 int		can_move(t_move *move);
 void	init_count_move(t_init *init, t_count *count, t_move *move);
+int		exit_croix(t_init *init);
 void	free_map(t_init *init);
 int		ft_exit(t_init *init);
 int		main(int argc, char **argv);
@@ -86,10 +88,9 @@ void	print_floor(t_init *init, int x, int y);
 void	print_coin(t_init *init, t_count *count, int x, int y);
 void	print_exit(t_init *init, t_count *count, int x, int y);
 void	print_player(t_init *init, t_move *move, int x, int y);
-void    visited(t_init *init);
-void 	check_chemin(t_init *init, t_move *move, t_count *count);
-void 	flood_fill(t_init *init, int x, int y);
-void    cacaprint(t_init *init);
-void   	map_to_visited(t_init *init);
+void	visited(t_init *init);
+void	check_chemin(t_init *init, t_move *move, t_count *count);
+void	flood_fill(t_init *init, int x, int y);
+void	map_to_visited(t_init *init);
 
 #endif
