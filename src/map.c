@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:51:32 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/23 19:52:54 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/25 22:59:39 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void	parse_map(t_init *init, char **argv)
 	{
 		map[i] = ft_strtrim(line, "\n");
 		free(line);
-		printf("%s\n", map[i]);
 		i++;
 		line = get_next_line(fd);
 	}

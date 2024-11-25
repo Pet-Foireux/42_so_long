@@ -44,4 +44,6 @@ void	print_player(t_init *init, t_move *move, int x, int y)
 	move->player_y = y;
 	move->new_x = move->player_x;
 	move->new_y = move->player_y;
+	move->p_x = y;
+	move->p_y = x;
 }

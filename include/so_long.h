@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:16:17 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/23 19:25:49 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/25 22:47:47 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ typedef struct s_move
 	int		last_y;
 	int		player_x;
 	int		player_y;
+	int		p_x;
+	int		p_y;
 	int		new_x;
 	int		new_y;
 }	t_move;
@@ -92,5 +94,6 @@ void	visited(t_init *init);
 void	check_chemin(t_init *init, t_move *move, t_count *count);
 void	flood_fill(t_init *init, int x, int y);
 void	map_to_visited(t_init *init);
+void	print_visited(t_init *init);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:10:32 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/23 19:14:48 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/25 22:59:06 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	flood_fill(t_init *init, int x, int y)
 
 void	check_chemin(t_init *init, t_move *move, t_count *count)
 {
-	flood_fill(init, move->player_x, move->player_y);
+	flood_fill(init, move->p_x, move->p_y);
 	if (init->player_trouvee != 1)
 	{
 		ft_printf("Error\nSortit innaccessible\n");

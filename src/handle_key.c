@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 11:57:59 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/23 19:24:41 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/25 23:02:26 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	handle_key(int key, t_move *move)
 		move->new_x += 1;
 	if (key == 65307)
 	{
-		ft_printf("trop dur le sang?\n");
+		ft_printf("Trop dur le sang?\n");
 		ft_exit(move->init);
 	}
 	if (key == 'w' || key == 'a' || key == 's' || key == 'd')
@@ -44,7 +44,10 @@ int	ft_mouvements(t_move *move)
 		move->new_y = move->player_y;
 	}
 	move->mouvements++;
-	ft_printf("tes as %d, deplacements\n", move->mouvements);
+	if (move->mouvements == 1)
+		ft_printf("Tes as %d, deplacement.\n", move->mouvements);
+	else
+		ft_printf("Tes as %d, deplacements.\n", move->mouvements);
 	return (0);
 }
 

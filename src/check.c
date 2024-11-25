@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 07:42:45 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/23 19:39:55 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/25 23:15:45 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	check_borders(t_init *init)
 		if (init->map[0][i] != '1' || init->map[init->height - 1][i] != '1')
 		{
 			ft_printf("Error\nSes pas fermer le roh.\n");
-			ft_printf("%d widht || %d height", init->widht, init->height);
 			free_map(init);
 			exit(0);
 		}
@@ -34,13 +33,11 @@ void	check_borders(t_init *init)
 		if (init->map[i][0] != '1' || init->map[i][init->widht - 1] != '1')
 		{
 			ft_printf("Error\nSes pas fermer le roh.\n");
-			ft_printf("%d widht || %d height", init->widht, init->height);
 			free_map(init);
 			exit(0);
 		}
 		i++;
 	}
-	ft_printf("%d widht || %d height", init->widht, init->height);
 }
 
 void	check_all(t_init *init)
@@ -97,12 +94,18 @@ void	check_count(t_init *init, t_count *count, t_move *move)
 {
 	if (move->count_player != 1)
 	{
-		ft_printf("tu a %d joeurs\n", move->count_player);
+		ft_printf("Error\nTu a %d joeur(s).\n", move->count_player);
+		ft_exit(init);
+	}
+	else if (count->count_exit > 1)
+	{
+		ft_printf("Error\nTa cru j'acceptais plusieurs sortit\n");
 		ft_exit(init);
 	}
 	else if (count->count_exit != 1)
 	{
-		ft_printf("Error\nTa cru j'acceptais plusieurs sortit\n");
+		ft_printf("Error\nPas envie de rester indefiniment, ");
+		ft_printf("met une sortit en 2 2.\n");
 		ft_exit(init);
 	}
 }
