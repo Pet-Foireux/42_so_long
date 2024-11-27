@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 03:47:25 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/20 14:35:04 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/27 23:11:18 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,17 @@ void	print_map(t_init *init, t_count *count, t_move *move)
 				print_exit(init, count, x, y);
 			else if (init->map[y][x] == 'P')
 				print_player(init, move, x, y);
+			else
+				other(init, x, y);
 			x++;
 		}
 		y++;
 	}
+}
+
+void	other(t_init *init, int x, int y)
+{
+	ft_printf("Error\nJ'accepete pas ce que tu me met en :");
+	ft_printf("x = %d, y = %d.\n", x, y);
+	ft_exit(init);
 }

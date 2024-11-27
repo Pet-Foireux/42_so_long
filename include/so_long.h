@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:16:17 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/25 22:47:47 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/11/27 23:07:57 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,6 @@ void	check_chemin(t_init *init, t_move *move, t_count *count);
 void	flood_fill(t_init *init, int x, int y);
 void	map_to_visited(t_init *init);
 void	print_visited(t_init *init);
+void	other(t_init *init, int x, int y);
 
 #endif
