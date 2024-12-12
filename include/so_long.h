@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:16:17 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/25 22:47:47 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/12/06 16:00:04 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	free_map(t_init *init);
 int		ft_exit(t_init *init);
 int		main(int argc, char **argv);
 int		get_height(char **argv);
-void	check_args(int argc, char **argv);
+void	check_args(int argc);
 char	**ft_malloc(t_init *init);
 void	parse_map(t_init *init, char **argv);
 void	check_fd(int fd);

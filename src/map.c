@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:51:32 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/25 22:59:39 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/12/12 17:29:49 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,11 @@ int	get_height(char **argv)
 	return (height);
 }
 
-void	check_args(int argc, char **argv)
+void	check_args(int argc)
 {
-	char	*ber;
-
 	if (argc != 2)
 	{
 		ft_printf("Error\nEnvoie une map en 2 2\n");
-		exit (0);
-	}
-	ber = ft_strchr(argv[1], '.');
-	if (!ber || ft_strncmp(ber, ".ber", 4) != 0)
-	{
-		ft_printf("Error\nPas .ber\n");
 		exit (0);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mpapin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 01:58:03 by mpapin            #+#    #+#             */
-/*   Updated: 2024/11/24 11:18:32 by mpapin           ###   ########.fr       */
+/*   Updated: 2024/12/12 17:29:48 by mpapin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	main(int argc, char **argv)
 	move.init = &init;
 	move.count = &count;
 	init_count_move(&init, &count, &move);
-	check_args(argc, argv);
+	check_args(argc);
 	parse_map(&init, argv);
 	check_all(&init);
 	init_xpm(&init);
